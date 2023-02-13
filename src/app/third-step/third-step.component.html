@@ -1,0 +1,34 @@
+
+<div class="wrap_content_box">
+
+<p>third-step works!</p>
+
+
+
+
+<form [formGroup]="commentSection" class="form_section"(ngSubmit)="submit()">
+    
+    
+    <label>
+        Deixe um texto sobre o que vocẽ busca da nossa empresa:
+        <textarea formControlName="comment"></textarea>
+    
+        <div *ngIf="!commentSection.controls.comment.value && commentSection.controls.comment.touched" class="error_msg">
+                    Insira um comentário</div>
+    
+        <div *ngIf="commentSection.controls.comment?.errors?.['minlength'] && commentSection.controls.comment.touched" class="error_msg">
+                    O país deve ter ao menos 5 caracteres</div>
+    
+    
+      </label>
+
+
+<button type="submit" *ngIf="commentSection.valid  "
+                            >Próximo</button>
+
+</form>
+
+
+<button (click)="testLog()">Log Test</button>
+
+</div>

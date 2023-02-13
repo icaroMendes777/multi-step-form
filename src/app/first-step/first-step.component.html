@@ -1,0 +1,65 @@
+
+<div class="wrap_content_box">
+<p>first-step works!</p>
+
+
+
+<form [formGroup]="nameSection" class="form_sac"(ngSubmit)="submit()">
+    
+    
+    <label>
+        E-mail:
+        <input type="text" formControlName="email">
+    
+        <div *ngIf="!nameSection.controls.email.value && nameSection.controls.email.touched" class="error_msg">
+                    Insira o E-mail</div>
+    
+        <div *ngIf="nameSection.controls.email?.errors?.['minlength'] && nameSection.controls.email.touched" class="error_msg">
+                    O email deve ter ao menos 5 caracteres</div>
+    
+        <div *ngIf="nameSection.controls.email?.errors?.['email'] && nameSection.controls.email.touched" class="error_msg">
+                    Insira um e-mail válido</div>
+    
+      </label>
+
+<label>
+    Nome:
+    <input type="text" formControlName="firstName">
+
+    <div *ngIf="!nameSection.controls.firstName.value && nameSection.controls.firstName.touched" class="error_msg">
+                Insira o Nome</div>
+
+    <div *ngIf="nameSection.controls.firstName?.errors?.['minlength'] && nameSection.controls.firstName.touched" class="error_msg">
+                O nome deve ter ao menos 5 caracteres</div>
+
+
+  </label>
+<label>
+    Sobrenome:
+    <input type="text" formControlName="lastName">
+
+    <div *ngIf="!nameSection.controls.lastName.value && nameSection.controls.lastName.touched" class="error_msg">
+        Insira o Sobrenome</div>
+
+    <div *ngIf="nameSection.controls.lastName?.errors?.['minlength'] && nameSection.controls.lastName.touched" class="error_msg">
+        O nome deve ter ao menos 5 caracteres</div>
+
+  </label>
+<label>
+    Idade:
+    <input type="text" formControlName="age">
+    <div *ngIf="!nameSection.controls.age.value && nameSection.controls.age.touched" class="error_msg">
+        Insira a idade</div>
+
+
+
+  </label>
+<button type="submit" *ngIf="nameSection.valid  "
+                            >Próximo</button>
+
+</form>
+
+
+<button (click)="testLog()">Log Test</button>
+
+</div>
