@@ -1,0 +1,12 @@
+.form_review{
+
+    margin:1rem;    
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    
+    gap:5px;
+    div{
+        background-color: lightgray;
+        padding:0.3rem;
+    }
+}

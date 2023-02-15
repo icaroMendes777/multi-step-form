@@ -1,15 +1,11 @@
 
-<div class="wrap_content_box">
-
-<p>second-step works!</p>
+<main><div class="wrap_content_box">
 
 
 
-<p>first-step works!</p>
 
 
-
-<form [formGroup]="addressSection" class="form_section"(ngSubmit)="submit()">
+<form [formGroup]="addressSection" class="form_section area_form"(ngSubmit)="submit()">
     
     
     <label>
@@ -57,25 +53,29 @@
   </label>
 
 
-<label>
-    Telefone:
-    <input type="text" formControlName="postalCode">
-    <div *ngIf="!addressSection.controls.postalCode.value && addressSection.controls.postalCode.touched" class="error_msg">
-        Insira o número de telefone</div>
 
-  </label>
 
   <label>
     Desejo receber mensagens sobre promoções:
     <input type="checkbox" formControlName="receivePromotions">
 
   </label>
+  <!--
 <button type="submit" *ngIf="addressSection.valid  "
                             >Próximo</button>
-
+-->
 </form>
 
 
-<button (click)="testLog()">Log Test</button>
+  <div class="btn_area">
+    <div class="area_back"> 
+    <a [routerLink]="['/first-step']" class="back_foward_btn area_back" role="button" (click)="submit()">Retornar</a>
+    </div>
 
+    <div class="area_forward">
+    <a [routerLink]="['/third-step']" class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+    </div>
+
+  </div>
 </div>
+</main>

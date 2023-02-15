@@ -16,7 +16,7 @@ export class FirstStepComponent implements OnInit{
   numberRegEx = [0-9];
 
   nameSection = new FormGroup({
-    email:new FormControl('', 
+    email:new FormControl((''), 
     [Validators.required,Validators.email,Validators.minLength(5)]),
     firstName: new FormControl('', 
         [Validators.required,Validators.minLength(5)]),
@@ -29,32 +29,30 @@ export class FirstStepComponent implements OnInit{
     private approvalService:ApprovalService,
     private formBuilder: FormBuilder
     ) {
-      //approvalService.alertTest();
-      console.log(this.name)
+
+      let settedValues:any = this.approvalService.getApprovals(0);
+
+      if(settedValues){
+        this.nameSection.controls.email.setValue(settedValues.email);
+        this.nameSection.controls.firstName.setValue(settedValues.firstName);
+        this.nameSection.controls.lastName.setValue(settedValues.lastName);
+        this.nameSection.controls.age.setValue(settedValues.age);
+      }
+      
     }
 
     ngOnInit() {
       //alert('oi');
     }
-/*
-    ngOnChanges()
-    {
-        alert('oi');
-    }
- 
-    ngDoCheck(){
-      alert('oi');
-    }
- */  
+
     alertName()
-    {
+    {           
       alert(this.name);
     }
 
     submit()
     {
-      console.log(this.nameSection);  
-      
+      this.approvalService.approveForm(0,this.nameSection.value);
     }
   
 

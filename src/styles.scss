@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+@mixin center_grid {
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,18 +14,130 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
+
+}
+
+
+
+.content_wrap{
+    @include center_grid();
+    width: 100%;
+
+ grid-template-columns: auto;
+    *{
+        max-width: 600px;
+    }
+}
+
+header{
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    margin: 2rem 0 5rem 0;
+}
+
+footer{
+    width: 100%;
+    margin-top: 1rem;;
+    background-color: lightgray;
+    padding:2rem;
+    height:5rem;
+}
+
+.main_logo{
+    width: 200px;
+}
+
+main{
+    display: flex;
+    border:1px solid black;
+    min-width: 600px;
+
+    padding:2rem;
+}
+
+
+
+.form_sac{
+
+    grid-template-columns: auto;
+
 }
 
 
 
 .error_msg{
     color:red;
-    font-weight: 700;   
+    font-weight: 700;
     font-size: small;
 }
 
+
+
+.wrap_content_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // display:grid;
+    // width:600px;
+    // height: 450px;
+    // //grid-template-columns: auto;
+    // grid-template-areas: 'form form'
+    //                     'back forward';
+}
+
+
+
+
 .form_section{
+
+
     display:grid;
     grid-template-columns: auto;
+
+    @include center_grid();
+
+
+    label{
+        margin: 1rem;
+    }
+}
+
+.btn_area{
+    display: flex;
+    justify-content: space-between;
+    // display: grid;
+    // grid-template-columns: auto auto;
+}
+
+.area_back{
+    grid-area: back;
+}
+
+.area_forward{
+    grid-area: forward;
+}
+
+.area_forward, .area_back{
+    display:grid;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.back_foward_btn{
+    @include center_grid();
+    color:white;
+    background-color: black;
+    height:2rem;
+    padding: 0.7rem;
+    margin: 0.7rem;
+    text-decoration: none;
+}
+
+
+.comment_textarea{
+    width:400px;
+    height:200px;
 }

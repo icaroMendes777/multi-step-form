@@ -21,16 +21,22 @@ export class ThirdStepComponent {
     private approvalService:ApprovalService,
     private formBuilder: FormBuilder
     ) {
-      //approvalService.alertTest();
+      let settedValues:any = this.approvalService.getApprovals(2);
+
+      if(settedValues){
+        this.commentSection.controls.comment.setValue(settedValues.comment);
+        
+      }
       
     }
 
 
     submit()
     {
-      alert('ok');
-      console.log(this.commentSection);
+      console.log(this.commentSection.value)
+      this.approvalService.approveForm(2,this.commentSection.value);
     }
+
 
     testLog()
     {

@@ -1,15 +1,15 @@
-
+<main>
 <div class="wrap_content_box">
-<p>first-step works!</p>
 
 
 
-<form [formGroup]="nameSection" class="form_sac"(ngSubmit)="submit()">
+
+<form [formGroup]="nameSection" class="form_sac form_section area_form"(ngSubmit)="submit()">
     
     
     <label>
         E-mail:
-        <input type="text" formControlName="email">
+        <input type="text" formControlName="email" maxlength="50">
     
         <div *ngIf="!nameSection.controls.email.value && nameSection.controls.email.touched" class="error_msg">
                     Insira o E-mail</div>
@@ -24,7 +24,7 @@
 
 <label>
     Nome:
-    <input type="text" formControlName="firstName">
+    <input type="text" formControlName="firstName" maxlength="30">
 
     <div *ngIf="!nameSection.controls.firstName.value && nameSection.controls.firstName.touched" class="error_msg">
                 Insira o Nome</div>
@@ -36,7 +36,7 @@
   </label>
 <label>
     Sobrenome:
-    <input type="text" formControlName="lastName">
+    <input type="text" formControlName="lastName" maxlength="30">
 
     <div *ngIf="!nameSection.controls.lastName.value && nameSection.controls.lastName.touched" class="error_msg">
         Insira o Sobrenome</div>
@@ -54,12 +54,21 @@
 
 
   </label>
+
+  <!--
 <button type="submit" *ngIf="nameSection.valid  "
                             >Próximo</button>
-
+-->
 </form>
 
 
-<button (click)="testLog()">Log Test</button>
+<div class="area_forward">
+<a  [routerLink]="['/second-step']"
+    class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+</div>
+
+
 
 </div>
+
+</main>

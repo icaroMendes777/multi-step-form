@@ -1,34 +1,41 @@
-
+<main>
 <div class="wrap_content_box">
 
-<p>third-step works!</p>
 
-
-
-
-<form [formGroup]="commentSection" class="form_section"(ngSubmit)="submit()">
+<form [formGroup]="commentSection" class="form_section area_form"(ngSubmit)="submit()">
     
     
     <label>
-        Deixe um texto sobre o que vocẽ busca da nossa empresa:
-        <textarea formControlName="comment"></textarea>
+        <p>Deixe um texto sobre o que vocẽ busca da nossa empresa:</p>
+        <textarea formControlName="comment" class="comment_textarea"></textarea>
     
         <div *ngIf="!commentSection.controls.comment.value && commentSection.controls.comment.touched" class="error_msg">
                     Insira um comentário</div>
     
         <div *ngIf="commentSection.controls.comment?.errors?.['minlength'] && commentSection.controls.comment.touched" class="error_msg">
-                    O país deve ter ao menos 5 caracteres</div>
+                    O comentário deve ter ao menos 5 caracteres</div>
     
     
       </label>
 
+<!--
+      <button (click)="testLog()">Log Test</button>
 
 <button type="submit" *ngIf="commentSection.valid  "
                             >Próximo</button>
-
+-->
 </form>
 
 
-<button (click)="testLog()">Log Test</button>
-
+<div class="btn_area">
+    <div class="area_back"> 
+    <a [routerLink]="['/second-step']" class="back_foward_btn area_back" role="button" (click)="submit()">Retornar</a>
+    </div>
+    
+    <div class="area_forward">
+    <a [routerLink]="['/finished']" class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+    </div>
+    </div>
 </div>
+
+</main>

@@ -30,23 +30,27 @@ export class SecondStepComponent {
     private approvalService:ApprovalService,
     private formBuilder: FormBuilder
     ) {
-      //approvalService.alertTest();
-      console.log(this.name)
+      let settedValues:any = this.approvalService.getApprovals(1);
+
+      if(settedValues){
+        this.addressSection.controls.country.setValue(settedValues.country);
+        this.addressSection.controls.state.setValue(settedValues.state);
+        this.addressSection.controls.city.setValue(settedValues.city);
+        this.addressSection.controls.postalCode.setValue(settedValues.postalCode);
+        this.addressSection.controls.receivePromotions.setValue(settedValues.receivePromotions);
+      }
     }
 
-
-    submit()
-    {
-      alert('ok');
-      console.log(this.addressSection);
-    }
 
     testLog()
     {
       console.log(this.addressSection);
     }
 
-
+    submit()
+    {
+      this.approvalService.approveForm(1,this.addressSection.value);
+    }
 
 
 }
