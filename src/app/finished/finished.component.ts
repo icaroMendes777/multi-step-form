@@ -23,7 +23,11 @@ export class FinishedComponent {
 
     submit()
     {
-      if (confirm('Você deseja enviar essas informações?')) alert('Informações enviadas.')
+      if (confirm('Você deseja enviar essas informações?')){
+         alert('Informações enviadas.');
+         //window.location.href = '/' ;
+        }
+      return;
     }
 
 }
