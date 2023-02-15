@@ -8,8 +8,8 @@
     
     
     <label>
-        E-mail:
-        <input type="text" formControlName="email" maxlength="50">
+        E-mail*:
+        <input type="text" formControlName="email" maxlength="50" size="30">
     
         <div *ngIf="!nameSection.controls.email.value && nameSection.controls.email.touched" class="error_msg">
                     Insira o E-mail</div>
@@ -23,49 +23,48 @@
       </label>
 
 <label>
-    Nome:
-    <input type="text" formControlName="firstName" maxlength="30">
+    Nome*:
+    <input type="text" formControlName="firstName" maxlength="30" size="30">
 
     <div *ngIf="!nameSection.controls.firstName.value && nameSection.controls.firstName.touched" class="error_msg">
                 Insira o Nome</div>
 
     <div *ngIf="nameSection.controls.firstName?.errors?.['minlength'] && nameSection.controls.firstName.touched" class="error_msg">
-                O nome deve ter ao menos 5 caracteres</div>
+                O nome deve ter ao menos 3 caracteres</div>
 
 
   </label>
 <label>
-    Sobrenome:
-    <input type="text" formControlName="lastName" maxlength="30">
+    Sobrenome*:
+    <input type="text" formControlName="lastName" maxlength="30" size="25">
 
     <div *ngIf="!nameSection.controls.lastName.value && nameSection.controls.lastName.touched" class="error_msg">
         Insira o Sobrenome</div>
 
     <div *ngIf="nameSection.controls.lastName?.errors?.['minlength'] && nameSection.controls.lastName.touched" class="error_msg">
-        O nome deve ter ao menos 5 caracteres</div>
-
-  </label>
-<label>
-    Idade:
-    <input type="text" formControlName="age">
-    <div *ngIf="!nameSection.controls.age.value && nameSection.controls.age.touched" class="error_msg">
-        Insira a idade</div>
-
-
+        O nome deve ter ao menos 3 caracteres</div>
 
   </label>
 
-  <!--
-<button type="submit" *ngIf="nameSection.valid  "
-                            >Próximo</button>
--->
 </form>
 
 
-<div class="area_forward">
-<a  [routerLink]="['/second-step']"
-    class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+<div *ngIf="nameSection.valid then thenBlock else elseBlock">
 </div>
+    <ng-template #thenBlock>
+        <div class="area_forward">
+        <a   [routerLink]="['/second-step']"
+        class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+        </div>
+    </ng-template>
+            
+    <ng-template #elseBlock>
+        <div class="area_forward">
+        <p
+        class="back_foward_btn back_foward_btn_inactive" >Prosseguir</p>
+        </div>
+    </ng-template>
+
 
 
 

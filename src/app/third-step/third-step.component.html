@@ -7,13 +7,13 @@
     
     <label>
         <p>Deixe um texto sobre o que vocẽ busca da nossa empresa:</p>
-        <textarea formControlName="comment" class="comment_textarea"></textarea>
+        <textarea formControlName="comment" class="comment_textarea" maxlength="850"></textarea>
     
         <div *ngIf="!commentSection.controls.comment.value && commentSection.controls.comment.touched" class="error_msg">
                     Insira um comentário</div>
     
         <div *ngIf="commentSection.controls.comment?.errors?.['minlength'] && commentSection.controls.comment.touched" class="error_msg">
-                    O comentário deve ter ao menos 5 caracteres</div>
+                    O comentário deve ter ao menos 50 caracteres</div>
     
     
       </label>
@@ -29,13 +29,25 @@
 
 <div class="btn_area">
     <div class="area_back"> 
-    <a [routerLink]="['/second-step']" class="back_foward_btn area_back" role="button" (click)="submit()">Retornar</a>
+        <a [routerLink]="['/second-step']" class="back_foward_btn area_back" role="button" (click)="submit()">Retornar</a>
     </div>
-    
-    <div class="area_forward">
-    <a [routerLink]="['/finished']" class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+    <div *ngIf="commentSection.valid then thenBlock else elseBlock">
     </div>
-    </div>
+        <ng-template #thenBlock>
+            <div class="area_forward">
+            <a   [routerLink]="['/finished']"
+            class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+            </div>
+        </ng-template>
+                
+        <ng-template #elseBlock>
+            <div class="area_forward">
+            <p
+            class="back_foward_btn back_foward_btn_inactive" >Prosseguir</p>
+            </div>
+        </ng-template>
+</div>
+
 </div>
 
 </main>

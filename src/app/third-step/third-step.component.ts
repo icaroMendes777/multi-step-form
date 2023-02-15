@@ -13,7 +13,7 @@ export class ThirdStepComponent {
 
   commentSection = new FormGroup({
     comment:new FormControl('', 
-    [Validators.required,Validators.minLength(5)]),
+    [Validators.required,Validators.minLength(50)]),
     
   });
 

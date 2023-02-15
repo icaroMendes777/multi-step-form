@@ -17,12 +17,12 @@ export class SecondStepComponent {
 
   addressSection = new FormGroup({
     country:new FormControl('', 
-    [Validators.required,Validators.minLength(5)]),
+    [Validators.required,Validators.minLength(3)]),
     state: new FormControl('', 
-        [Validators.required,Validators.minLength(5)]),
+        [Validators.required,Validators.minLength(2)]),
     city: new FormControl('',
-        [Validators.required,Validators.minLength(5)]),
-    postalCode: new FormControl(null,[Validators.required]),
+        [Validators.required,Validators.minLength(3)]),
+    postalCode: new FormControl(null),
     receivePromotions: new FormControl(false),
   });
 

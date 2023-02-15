@@ -21,9 +21,9 @@ export class FinishedComponent {
     }
 
 
-    enviar()
+    submit()
     {
-      alert('Formulário enviado');
+      if (confirm('Você deseja enviar essas informações?')) alert('Informações enviadas.')
     }
 
 }

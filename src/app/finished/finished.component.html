@@ -13,17 +13,12 @@
         <div>E-mail:</div><div>{{ values[0].email ? values[0].email : '---'}}</div>
         <div>Nome:</div><div>{{ values[0].firstName ? values[0].firstName : '---'}}</div>
         <div>Sobrenome:</div><div>{{ values[0].lastName ? values[0].lastName : '---'}}</div>
-        <div>Idade:</div><div>{{ values[0].age ? values[0].age : '---'}}</div>
         <div>País:</div><div>{{ values[1].country ? values[1].country : '---'}}</div>
         <div>Estado:</div><div>{{ values[1].state ? values[1].state : '---'}}</div>
         <div>Cidade:</div><div>{{ values[1].city ? values[1].city : '---'}}</div>
         <div>Código postal:</div><div>{{ values[1].postalCode ? values[1].postalCode : '---'}}</div>
         <div>Comentário:</div><div>{{ values[2].comment ? values[2].comment : '---'}}</div>
     
-
-
-
-
     </div>
     
     
@@ -33,13 +28,16 @@
 </div>
 
 
-
-
-<div class="area_back"> 
-    <a [routerLink]="['/third-step']" class="back_foward_btn area_back" role="button" (click)="enviar()">Enviar.</a>
+<div class="btn_area">
+    <div class="area_back"> 
+    <a [routerLink]="['/third-step']" class="back_foward_btn area_back" role="button" >Retornar</a>
     </div>
-
-
+    
+    <div class="area_forward">
+    <a href="" class="back_foward_btn" role="button" (click)="submit()">Finalizar</a>
+    </div>
+    </div>
 </div>
+
 
 </main>

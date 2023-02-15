@@ -9,46 +9,45 @@
     
     
     <label>
-        País:
-        <input type="text" formControlName="country">
+        País*:
+        <input type="text" formControlName="country" maxlength="30" size="30">
     
         <div *ngIf="!addressSection.controls.country.value && addressSection.controls.country.touched" class="error_msg">
                     Insira o País</div>
     
         <div *ngIf="addressSection.controls.country?.errors?.['minlength'] && addressSection.controls.country.touched" class="error_msg">
-                    O país deve ter ao menos 5 caracteres</div>
+                    O país deve ter ao menos 3 caracteres</div>
     
     
       </label>
 
 <label>
-    Estado:
-    <input type="text" formControlName="state">
+    Estado*:
+    <input type="text" formControlName="state" maxlength="30" size="30">
 
     <div *ngIf="!addressSection.controls.state.value && addressSection.controls.state.touched" class="error_msg">
                 Insira o Estado</div>
 
     <div *ngIf="addressSection.controls.state?.errors?.['minlength'] && addressSection.controls.state.touched" class="error_msg">
-                O nome do estado deve ter ao menos 5 caracteres</div>
+                O nome do estado deve ter ao menos 2 caracteres</div>
 
 
   </label>
 <label>
-    Cidade:
-    <input type="text" formControlName="city">
+    Cidade*:
+    <input type="text" formControlName="city" maxlength="30" size="30">
 
     <div *ngIf="!addressSection.controls.city.value && addressSection.controls.city.touched" class="error_msg">
         Insira a cidade</div>
 
     <div *ngIf="addressSection.controls.city?.errors?.['minlength'] && addressSection.controls.city.touched" class="error_msg">
-        O nome da cidade deve ter ao menos 5 caracteres</div>
+        O nome da cidade deve ter ao menos 3 caracteres</div>
 
   </label>
 <label>
     Código Postal:
-    <input type="text" formControlName="postalCode">
-    <div *ngIf="!addressSection.controls.postalCode.value && addressSection.controls.postalCode.touched" class="error_msg">
-        Insira o código postal</div>
+    <input type="text" formControlName="postalCode" maxlength="20" size="20">
+
 
   </label>
 
@@ -71,11 +70,21 @@
     <div class="area_back"> 
     <a [routerLink]="['/first-step']" class="back_foward_btn area_back" role="button" (click)="submit()">Retornar</a>
     </div>
-
-    <div class="area_forward">
-    <a [routerLink]="['/third-step']" class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+    <div *ngIf="addressSection.valid then thenBlock else elseBlock">
     </div>
-
+        <ng-template #thenBlock>
+            <div class="area_forward">
+            <a   [routerLink]="['/third-step']"
+            class="back_foward_btn" role="button" (click)="submit()">Prosseguir</a>
+            </div>
+        </ng-template>
+                
+        <ng-template #elseBlock>
+            <div class="area_forward">
+            <p
+            class="back_foward_btn back_foward_btn_inactive" >Prosseguir</p>
+            </div>
+        </ng-template>
   </div>
 </div>
 </main>

@@ -2,6 +2,7 @@ import { Component , OnInit} from '@angular/core';
 import { ApprovalService } from '../approval.service';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
 
 
@@ -19,10 +20,10 @@ export class FirstStepComponent implements OnInit{
     email:new FormControl((''), 
     [Validators.required,Validators.email,Validators.minLength(5)]),
     firstName: new FormControl('', 
-        [Validators.required,Validators.minLength(5)]),
+        [Validators.required,Validators.minLength(3)]),
     lastName: new FormControl('',
-        [Validators.required,Validators.minLength(5)]),
-    age: new FormControl(null,[Validators.required])
+        [Validators.required,Validators.minLength(3)]),
+    
   });
 
   constructor(
@@ -36,9 +37,28 @@ export class FirstStepComponent implements OnInit{
         this.nameSection.controls.email.setValue(settedValues.email);
         this.nameSection.controls.firstName.setValue(settedValues.firstName);
         this.nameSection.controls.lastName.setValue(settedValues.lastName);
-        this.nameSection.controls.age.setValue(settedValues.age);
+  
       }
       
+    }
+
+    validateOnlyNumbers(str:any)
+    {
+      let pattern = /^[0-9]*$/;
+      return pattern.test(str);
+    }
+
+    validateMinAge(age:any)
+    {
+    
+      let a = parseInt(age);
+      return( a >= 6);
+    }
+
+    validateMaxAge(age:any)
+    {
+      let a = parseInt(age);
+      return (a<122);
     }
 
     ngOnInit() {
