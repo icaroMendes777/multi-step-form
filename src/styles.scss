@@ -4,6 +4,7 @@
     display:grid;
     justify-content: center;
     align-content: center;
+    justify-items: center;
 }
 
 
@@ -25,7 +26,7 @@ body {
 
  grid-template-columns: auto;
     *{
-        max-width: 600px;
+        max-width: 550px;
     }
 }
 
@@ -38,9 +39,9 @@ header{
 }
 
 footer{
-    width: 100%;
-    margin-top: 1rem;;
-    background-color: lightgray;
+    //width: 550px;
+    margin-top: 1rem;
+    //background-color: lightgray;
     padding:2rem;
     height:5rem;
 }
@@ -52,7 +53,7 @@ footer{
 main{
     display: flex;
     border:1px solid black;
-    min-width: 600px;
+    
 
     padding:2rem;
 }
@@ -146,4 +147,16 @@ main{
 .comment_textarea{
     width:400px;
     height:200px;
+}
+
+
+@media only screen and (max-width:600px){
+    .content_wrap{
+        *{
+            max-width: 90vw;
+        }
+    }
+    .comment_textarea{
+        max-width: 80vw;
+    }
 }
