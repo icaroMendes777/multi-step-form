@@ -11,6 +11,7 @@ import { FirstStepComponent } from './first-step/first-step.component';
 import { SecondStepComponent } from './second-step/second-step.component';
 import { ThirdStepComponent } from './third-step/third-step.component';
 import { FinishedComponent } from './finished/finished.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FinishedComponent } from './finished/finished.component';
     FirstStepComponent,
     SecondStepComponent,
     ThirdStepComponent,
-    FinishedComponent
+    FinishedComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { FinishedComponent } from './finished/finished.component';
       { path: 'second-step', component: SecondStepComponent},
       { path: 'third-step', component: ThirdStepComponent },
       { path: 'finished', component: FinishedComponent },
+      { path: 'success', component: SuccessComponent },
     ])
   ],
   providers: [],

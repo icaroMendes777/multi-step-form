@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ApprovalService } from '../approval.service';
+import {Router} from "@angular/router"
+
 
 @Component({
   selector: 'app-finished',
@@ -12,6 +14,7 @@ export class FinishedComponent {
 
   constructor(
     private approvalService:ApprovalService,
+    private router: Router,
     ) {
       this.values[0] = this.approvalService.getApprovals(0);
       this.values[1] = this.approvalService.getApprovals(1);
@@ -24,7 +27,7 @@ export class FinishedComponent {
     submit()
     {
       if (confirm('Você deseja enviar essas informações?')){
-         alert('Informações enviadas.');
+        this.router.navigate(['/success'])
          //window.location.href = '/' ;
         }
       return;
